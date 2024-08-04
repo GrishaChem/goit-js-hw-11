@@ -50,23 +50,7 @@ function handleSubmit(event) {
       renderGallery(gallery, images);
       console.log(images);
 
-      const imgElements = document.querySelectorAll('.gallery-item img');
-      let imagesLoaded = 0;
-
-      imgElements.forEach(img => {
-        img.addEventListener('load', () => {
-          imagesLoaded += 1;
-          if (imagesLoaded === imgElements.length) {
-            hideLoader(); // Скрываем лоадер, когда все изображения загружены
-          }
-        });
-        img.addEventListener('error', () => {
-          imagesLoaded += 1;
-          if (imagesLoaded === imgElements.length) {
-            hideLoader(); // Скрываем лоадер, если ошибка при загрузке
-          }
-        });
-      });
+      hideLoader();
 
       lightbox.refresh();
     })
